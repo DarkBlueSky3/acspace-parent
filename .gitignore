@@ -1,0 +1,36 @@
+*.class
+
+
+# Package Files #
+
+*.jar
+
+*.war
+
+*.ear
+
+
+
+#Gradle temporary files
+
+target/
+
+
+
+
+
+#IntelliJ files
+
+**/*.iml
+
+**/.idea
+
+**/.gradle
+
+**/*.iws
+
+**/*.iml
+
+**/*.ipr
+
+
