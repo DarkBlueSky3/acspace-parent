@@ -1,25 +1,22 @@
 server:
-  port: 18081
+  port: 18082
 spring:
   application:
-    name: user-service
+    name: subject-service
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://8.131.231.122:3306/acspace?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: mysql
     password: Acspace@2021!
-eureka:
-  client:
-    service-url:
-      defaultZone: http://8.131.231.122:8761/eureka
-#      defaultZone: http://localhost:8761/eureka
-#    register-with-eureka: false
-#    fetch-registry: true
-  instance:
-    prefer-ip-address: true
-feign:
-  hystrix:
-    enabled: true
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://8.131.231.122:8761/eureka
+#  instance:
+#    prefer-ip-address: true
+#feign:
+#  hystrix:
+#    enabled: true
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

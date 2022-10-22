@@ -1,10 +1,11 @@
 package com.acspace.user.service;
 
 import com.acspace.user.po.User;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends IService<User> {
 
     List<User> findAll();
 

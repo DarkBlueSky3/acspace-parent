@@ -3,8 +3,7 @@ package com.acspace.user.controller;
 import com.acspace.user.po.User;
 import com.acspace.user.service.UserService;
 
-import entity.Result;
-import entity.StatusCode;
+import com.acspace.response.ResponseMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +21,9 @@ public class UserController {
      * @return
      */
     @GetMapping
-    public Result<List<User>> findAll() {
+    public ResponseMessage<List<User>> findAll() {
         List<User> users = userService.findAll();
-        return new Result<>(true, StatusCode.OK, "查询成功", users);
+        return ResponseMessage.success(users);
     }
 
     /**
@@ -33,9 +32,9 @@ public class UserController {
      * @return
      */
     @PostMapping
-    public Result add(@RequestBody User user) {
+    public ResponseMessage add(@RequestBody User user) {
         userService.add(user);
-        return new Result(true, StatusCode.OK, "增加用户成功");
+        return ResponseMessage.success("增加用户成功");
     }
 
     /**
@@ -44,9 +43,9 @@ public class UserController {
      * @return
      */
     @DeleteMapping(value = "/{id}")
-    public Result delete(@PathVariable String id) {
+    public ResponseMessage delete(@PathVariable String id) {
         userService.delete(Integer.valueOf(id));
-        return new Result(true, StatusCode.OK, "删除用户成功");
+        return ResponseMessage.success("删除用户成功");
     }
 
     /**
@@ -56,10 +55,10 @@ public class UserController {
      * @return
      */
     @PutMapping(value = "/{id}")
-    public Result update(@RequestBody User user, @PathVariable String id) {
+    public ResponseMessage update(@RequestBody User user, @PathVariable String id) {
         user.setId(Integer.valueOf(id));
         userService.update(user);
-        return new Result(true, StatusCode.OK, "修改用户信息成功");
+        return ResponseMessage.success("修改用户信息成功");
     }
 
 }

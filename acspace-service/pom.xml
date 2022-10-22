@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>acspace-service-user</module>
+        <module>acspace-service-subject</module>
     </modules>
 
     <dependencies>

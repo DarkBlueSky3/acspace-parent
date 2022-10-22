@@ -1,9 +1,9 @@
 package com.acspace.user.dao;
 
 import com.acspace.user.po.User;
-import tk.mybatis.mapper.common.Mapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-public interface UserMapper extends Mapper<User> {
+@Repository
+public interface UserMapper extends BaseMapper<User> {
 }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.acspace.mapper.SubjectMapper">
+
+    <resultMap id="subject" type="com.acspace.po.Subject">
+        <id column="publish_time" property="publishTime" typeHandler="com.acspace.handler.JsonTypeHandler"/>
+    </resultMap>
+
+    <select id="findAll" resultMap="subject">
+        select * from subject
+    </select>
+
+    <insert id="insert" parameterType="List">
+        insert into subject (heading, opt_a, opt_b, opt_c, opt_d, image, answer, note, chapter, publish_time, subject)
+        <foreach collection="list" open="values" item="subject" separator=",">
+            (
+                #{subject.heading},
+                #{subject.optA},
+                #{subject.optB},
+                #{subject.optC},
+                #{subject.optD},
+                #{subject.image},
+                #{subject.answer},
+                #{subject.note},
+                #{subject.chapter},
+                #{subject.publishTime, typeHandler=com.acspace.handler.JsonTypeHandler},
+                #{subject.subject}
+            )
+        </foreach>
+    </insert>
+
+</mapper>
